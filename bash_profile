@@ -56,8 +56,6 @@ export PAGER=/usr/bin/less
 export EDITOR=/opt/homebrew/bin/vim
 export LESS="-SR"
 
-alias histsum='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
-
 export HISTSIZE=1000000
 export HISTCONTROL=ignorespace
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S")  $(hostname -s):$(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
