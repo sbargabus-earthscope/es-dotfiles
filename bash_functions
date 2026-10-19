@@ -6,6 +6,10 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+parse_git_host() {
+    git config --get remote.origin.url | awk -F'[/:]' '{print $1}' | awk -F'[/@]' '{print $2}'
+}
+
 parse_git_remote() {
     url=`git config --get remote.origin.url`
     if [[ ${#url} -eq 0 ]]; then
@@ -23,9 +27,10 @@ parse_git_remote() {
 
 parse_git_fields() {
     remte=`parse_git_remote`
+    hst=`parse_git_host`
     brnch=`parse_git_branch 2> /dev/null | tr -d "()"`
     if [[ ${#remte} -gt 0 ]] && [[ ${#brnch} -gt 0 ]]; then
-        printf "($remte:$brnch:"
+        printf "($hst:$remte:$brnch:"
         STATUS="$(git status 2> /dev/null)"
         if [[ $? -ne 0 ]]; then printf "-"; return; else printf "["; fi
         if echo ${STATUS} | grep -c "renamed:"         &> /dev/null; then printf ">"; else printf ""; fi

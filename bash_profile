@@ -53,7 +53,8 @@ export PATH=$PATH:~/bin:.
 export PATH=/usr/local/sbin:$PATH
 export ROOTDIR=/Users/scott
 export PAGER=/usr/bin/less
-export EDITOR=/opt/homebrew/bin/vim
+export EDITOR=/opt/homebrew/bin/gvim
+export VISUAL=/opt/homebrew/bin/gvim
 export LESS="-SR"
 
 export HISTSIZE=1000000
@@ -74,3 +75,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/usr/local/bin:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# EarthScope Greengrass tools
+export PATH="/Users/scott.bargabus/.es-greengrass/venv/bin:${PATH}"
+
+# EarthScope Greengrass environment variables
+source "/Users/scott.bargabus/.es-greengrass/.env"

@@ -10,11 +10,14 @@ alias l='less'
 alias gp='cd ~/Projects/'
 alias hist='history | tail -50'
 alias changeFirefox='vi /Users/scott/Library/ApplicationSupport/Firefox/Profiles/*/chrome/userChrome.css'
-alias rh='history | tail -100 | less'
+alias rh='history | tail -25 | more'
 
 alias vdiff='vimdiff -c "set diffopt+=iwhite,icase" -c "syntax off"'
+alias vin='vim -c NERDTree'
 
 alias histsum='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 
 alias gitnp='git --no-pager'
 alias show_bash_functions='declare -F'
+
+alias prettypath='tr ":" "\n" <<< $PATH'
