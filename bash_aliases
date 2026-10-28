@@ -21,3 +21,4 @@ alias gitnp='git --no-pager'
 alias show_bash_functions='declare -F'
 
 alias prettypath='tr ":" "\n" <<< $PATH'
+alias tds='date +"%Y-%m-%d " | pbcopy'
